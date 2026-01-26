@@ -1,4 +1,4 @@
-# 🚀 SignalOps Backend
+#  SignalOps Backend
 
 SignalOps backend is a **Spring Boot (Java 17)** application providing authentication and core APIs, backed by **PostgreSQL** and built with **Maven**.
 
