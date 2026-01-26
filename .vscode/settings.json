@@ -1,6 +1,12 @@
 {
-  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.project.sourcePaths": [
+    "src/main/java",
+    "src/test/java"
+  ],
+  "java.project.resourcePaths": [
+    "src/main/resources",
+    "src/test/resources"
+  ],
   "java.import.maven.enabled": true,
-  "java.project.sourcePaths": ["src/main/java", "src/test/java"],
-  "java.project.resourcePaths": ["src/main/resources", "src/test/resources"]
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
