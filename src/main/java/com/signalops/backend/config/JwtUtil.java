@@ -23,6 +23,7 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         this.expirationMs = expirationMs;
     }
+
     public String generateToken(String subject) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + expirationMs);
@@ -34,7 +35,25 @@ public class JwtUtil {
                 .signWith(key)
                 .compact();
     }
+
     public String extractSubject(String token) {
         return getClaims(token).getSubject();
+    }
+
+    public boolean isValid(String token) {
+        try {
+            Claims claims = getClaims(token);
+            return claims.getExpiration().after(new Date());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private Claims getClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(key)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }
