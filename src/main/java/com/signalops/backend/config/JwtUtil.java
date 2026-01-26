@@ -23,4 +23,15 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         this.expirationMs = expirationMs;
     }
+    public String generateToken(String subject) {
+        Date now = new Date();
+        Date exp = new Date(now.getTime() + expirationMs);
+
+        return Jwts.builder()
+                .subject(subject)
+                .issuedAt(now)
+                .expiration(exp)
+                .signWith(key)
+                .compact();
+    }
 }
