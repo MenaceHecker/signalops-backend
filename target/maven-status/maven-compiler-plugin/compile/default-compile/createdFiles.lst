@@ -1,0 +1,4 @@
+com/signalops/backend/SignalOpsBackendApplication.class
+util/Role.class
+com/signalops/backend/dto/RegisterRequest.class
+com/signalops/backend/dto/AuthResponse.class
