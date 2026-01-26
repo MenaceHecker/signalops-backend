@@ -3,21 +3,14 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/signalops
+    url: jdbc:postgresql://127.0.0.1:5433/signalops
     username: signalops
     password: signalops
     driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 2
 
   jpa:
     hibernate:
       ddl-auto: update
-    open-in-view: false
-    properties:
-      hibernate:
-        format_sql: true
 
 jwt:
   secret: "signalops-dev-secret-please-change-this-to-64-chars-minimum-123456"
