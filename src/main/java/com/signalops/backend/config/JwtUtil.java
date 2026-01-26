@@ -34,4 +34,7 @@ public class JwtUtil {
                 .signWith(key)
                 .compact();
     }
+    public String extractSubject(String token) {
+        return getClaims(token).getSubject();
+    }
 }
