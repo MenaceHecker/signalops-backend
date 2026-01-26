@@ -32,4 +32,11 @@ public class AuthService {
         String token = jwtUtil.generateToken(user.getEmail());
         return new AuthResponse(token);
     }
+    public AuthResponse login(LoginRequest req) {
+        var authToken = new UsernamePasswordAuthenticationToken(req.getEmail().toLowerCase(), req.getPassword());
+        authManager.authenticate(authToken); // throws if bad creds are found
+
+        String token = jwtUtil.generateToken(req.getEmail().toLowerCase());
+        return new AuthResponse(token);
+    }
 }
