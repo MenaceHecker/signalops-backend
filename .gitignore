@@ -1,0 +1,17 @@
+# Maven build directory
+target/
+
+# Compiled class files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# macOS
+.DS_Store
