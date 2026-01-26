@@ -3,15 +3,17 @@ package com.signalops.backend.controller;
 import com.signalops.backend.dto.*;
 import com.signalops.backend.service.AuthService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@RequiredArgsConstructor
 public class AuthController {
 
     private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @PostMapping("/register")
     public AuthResponse register(@Valid @RequestBody RegisterRequest req) {
