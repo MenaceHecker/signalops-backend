@@ -10,7 +10,10 @@ import java.util.Map;
 public class UserController {
 
     @GetMapping("/api/me")
-    public Map<String, String> me(Authentication auth) {
-        return Map.of("email", auth.getName());
+    public Map<String, Object> me(Authentication auth) {
+        return Map.of(
+                "email", auth.getName(),
+                "authorities", auth.getAuthorities()
+        );
     }
 }
