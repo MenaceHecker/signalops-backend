@@ -20,6 +20,9 @@ public class JwtUtil {
             @Value("${jwt.secret}") String secret,
             @Value("${jwt.expiration}") long expirationMs
     ) {
+        if (secret == null || secret.length() < 64) {
+            throw new IllegalArgumentException("jwt.secret must be at least 64 characters for HS512 strength.");
+        }
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         this.expirationMs = expirationMs;
     }
