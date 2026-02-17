@@ -9,7 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
 
 
@@ -41,7 +40,7 @@ protected void doFilterInternal(
 ) throws ServletException, IOException {
 
 
-        String header = request.getHeader(HttpHeaders.AUTHORIZATION);
+        String header = request.getHeader("Authorization");
         if (header == null || !header.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
