@@ -15,8 +15,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/me")
-    public UserProfileResponse me(Authentication auth) {
-        return userService.getMe(auth.getName());
-    }
+    // @GetMapping("/me")
+    // public UserProfileResponse me(Authentication auth) {
+    //     return userService.getMe(auth.getName());
+    // }
 }
