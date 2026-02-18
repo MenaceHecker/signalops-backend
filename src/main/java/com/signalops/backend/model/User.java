@@ -8,7 +8,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+
+import java.time.Instant;
 @Entity
 @Table(name = "users")
 public class User {
@@ -24,6 +27,14 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Column(nullable = false, updatable = false)
+    private Instant createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = Instant.now();
+    }
 
     public Long getId() {
         return id;
@@ -55,5 +66,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
     }
 }
