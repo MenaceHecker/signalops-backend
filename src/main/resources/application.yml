@@ -16,5 +16,5 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 jwt:
-  secret: "signalops-dev-secret-please-change-this-to-64-chars-minimum-123456"
+  secret: "signalops-dev-secret-CHANGE-ME-IF-YOU-CAN-minimum-123456"
   expiration: 86400000
