@@ -16,5 +16,5 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 jwt:
-  secret: "signalops-dev-secret-CHANGE-ME-IF-YOU-CAN-minimum-123456"
+  secret: "${JWT_SECRET:signalops-dev-secret-CHANGE-ME-IF-YOU-CAN-minimum-123456-THIS-STRING-MUST-BE-AT-LEAST-64-CHARS}"
   expiration: 86400000
