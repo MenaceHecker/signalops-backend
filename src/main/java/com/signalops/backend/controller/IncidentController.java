@@ -2,6 +2,7 @@ package com.signalops.backend.controller;
 
 import com.signalops.backend.dto.CreateIncidentRequest;
 import com.signalops.backend.dto.IncidentResponse;
+import com.signalops.backend.dto.UpdateIncidentStatusRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
@@ -57,5 +58,30 @@ public class IncidentController {
 
         incidents.add(0, created);
         return created;
+    }
+
+    @PatchMapping("/{id}/status")
+    public IncidentResponse updateIncidentStatus(
+            @PathVariable Long id,
+            @RequestBody UpdateIncidentStatusRequest req
+    ) {
+        for (int i = 0; i < incidents.size(); i++) {
+            IncidentResponse incident = incidents.get(i);
+
+            if (incident.getId().equals(id)) {
+                IncidentResponse updated = new IncidentResponse(
+                        incident.getId(),
+                        incident.getTitle(),
+                        incident.getSeverity(),
+                        req.getStatus(),
+                        incident.getCreatedAt()
+                );
+
+                incidents.set(i, updated);
+                return updated;
+            }
+        }
+
+        throw new RuntimeException("Incident not found");
     }
 }
