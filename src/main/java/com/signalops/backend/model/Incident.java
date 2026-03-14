@@ -28,43 +28,15 @@ public class Incident {
         createdAt = Instant.now();
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public String getTitle() { return title; }
+    public String getSeverity() { return severity; }
+    public String getStatus() { return status; }
+    public Instant getCreatedAt() { return createdAt; }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSeverity() {
-        return severity;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setSeverity(String severity) {
-        this.severity = severity;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+    public void setId(Long id) { this.id = id; }
+    public void setTitle(String title) { this.title = title; }
+    public void setSeverity(String severity) { this.severity = severity; }
+    public void setStatus(String status) { this.status = status; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 }
