@@ -9,20 +9,20 @@ public class CreateIncidentRequest {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getSeverity() {
         return severity;
     }
 
-    public void setSeverity(String severity) {
-        this.severity = severity;
-    }
-
     public String getStatus() {
         return status;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
     }
 
     public void setStatus(String status) {
